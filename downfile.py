@@ -47,11 +47,11 @@ def update_status(status,id):
    file_object = open('thefile.txt', 'a')
    file_object.writelines(str(id)+'__'+str(status)+'__\n')
    file_object.close()
-   sql = "UPDATE  `dw`.`t_xy_pp_iphone_singleurl` SET  `status` =  '%s' WHERE  `t_xy_pp_iphone_singleurl`.`id` = %s" %(status,id)
+   sql = "UPDATE  `dw`.`iphone_singleurl` SET  `status` =  '%s' WHERE  `iphone_singleurl`.`id` = %s" %(status,id)
    CUR.execute(sql)
 def getData():
     while True:
-        sql = 'SELECT id,dwonload_yueyu FROM  `t_xy_pp_iphone_singleurl` where status = 0 GROUP BY id order by size asc LIMIT 0 , 300'
+        sql = 'SELECT id,dwonload_yueyu FROM  `iphone_singleurl` where status = 0 GROUP BY id order by size asc LIMIT 0 , 300'
         count = CUR.execute(sql)
         rows = CUR.fetchall()
 	if count > 0:
